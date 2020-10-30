@@ -56,7 +56,7 @@ deploy:
     - cp -r dist/. docker/www$CONTEXT_PATH
     - cd docker
     #处理nginx的contextPath
-    # - cat nginx.tmp | sed 's#CONTEXT_PATH#'"${CONTEXT_PATH}"'#g' >nginx.conf
+    - cat nginx.tmp | sed 's#CONTEXT_PATH#'"${CONTEXT_PATH}"'#g' >nginx.conf
     #处理docker编译的发布
     - docker build -t reg.amgzs.cn/cckj/${CI_PROJECT_NAME}:$dockerversion .
     - docker push reg.amgzs.cn/cckj/${CI_PROJECT_NAME}:$dockerversion
