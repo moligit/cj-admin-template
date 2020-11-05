@@ -1,4 +1,5 @@
 import { defineConfig } from 'umi';
+import routes from './config/routes';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -6,8 +7,11 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  // layout: {},
-  // routes: [{ path: '/', component: '@/pages/index' }],
+  layout: {
+    name: 'Jobs Admin', 
+    locale: false,
+  },
+  routes,
   base: '/erpmicro/jobs',
   outputPath: 'dist',
   hash: true,
