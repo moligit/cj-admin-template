@@ -5,7 +5,7 @@ export interface IndexModelState {
 }
 
 export interface IndexModelType {
-  namespace: 'index';
+  namespace: string;
   state: IndexModelState;
   effects: {
     query: Effect;
@@ -21,27 +21,27 @@ export interface IndexModelType {
 const IndexModel: IndexModelType = {
   namespace: 'index',
   state: {
-    count: 0,
+    count: 2,
   },
   effects: {
-    * query({ payload }, { put }) {
+    *query({ payload }, { put }) {
       // const data = yield call(getAccountAmount, payload);
       // const { success, result } = data
       // if (success) {
       yield put({
         type: 'save',
         payload: {
-          state: payload,
+          count: payload.count,
         },
       });
       // }
     },
   },
   reducers: {
-    save(state, { payload }) {
+    save(state, action) {
       return {
         ...state,
-        ...payload,
+        ...action.payload,
       };
     },
     // 启用 immer 之后

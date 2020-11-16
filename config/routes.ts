@@ -1,7 +1,7 @@
 export default [
   {
     path: '/welcome',
-    component: 'demo1',
+    component: 'demo/demo1',
     menu: {
       name: 'demo-用户', // 兼容此写法
       icon: 'BarsOutlined',
@@ -13,7 +13,7 @@ export default [
   },
   {
     path: '/welcome2',
-    component: 'demo2/softTextList',
+    component: 'demo/demo2/softTextList',
     menu: {
       name: 'demo-富文本', // 兼容此写法
       icon: 'BarsOutlined',
@@ -25,7 +25,7 @@ export default [
   },
   {
     path: '/demo-hooks',
-    component: 'demo-hooks',
+    component: 'demo/demo-hooks',
     menu: {
       name: 'demo-hooks', // 兼容此写法
       icon: 'BarsOutlined',
@@ -37,7 +37,7 @@ export default [
   },
   {
     path: '/demo-dva',
-    component: 'demo-dva',
+    component: 'demo/demo-dva',
     menu: {
       name: 'demo-dva', // 兼容此写法
       icon: 'BarsOutlined',

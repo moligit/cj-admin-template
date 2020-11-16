@@ -4,18 +4,16 @@ import { Button } from 'antd';
 
 function Demo() {
   const { state, dispatch } = useStore();
-  
+
   return (
     <>
-      <Button 
-        type="primary" 
-        onClick={
-          () => { 
-            dispatch({
-              type: 'increase',
-            }); 
-          }
-        }
+      <Button
+        type="primary"
+        onClick={() => {
+          dispatch({
+            type: 'increase',
+          });
+        }}
       >
         加+1
       </Button>

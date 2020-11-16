@@ -10,11 +10,11 @@ const App = () => {
       case 'increase': {
         return state + 1;
       }
-  
+
       case 'decrease': {
         return state - 1;
       }
-  
+
       default: {
         return state;
       }
@@ -42,18 +42,16 @@ const Toolbar = () => (
 
 const DEMO2 = () => {
   const { state, dispatch } = useStore();
-  
+
   return (
     <>
-      <Button 
-        type="primary" 
-        onClick={
-          () => { 
-            dispatch({
-              type: 'decrease',
-            }); 
-          }
-        }
+      <Button
+        type="primary"
+        onClick={() => {
+          dispatch({
+            type: 'decrease',
+          });
+        }}
       >
         减-1
       </Button>

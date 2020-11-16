@@ -8,7 +8,7 @@ export default defineConfig({
     type: 'none',
   },
   layout: {
-    name: 'Jobs Admin', 
+    name: 'Jobs Admin',
     locale: false,
   },
   routes,
@@ -30,8 +30,8 @@ export default defineConfig({
   //   },
   // },
   dva: {
-    immer: true,
-    hmr: false,
+    immer: false,
+    hmr: true,
   },
 
   // 子应用配置开启
