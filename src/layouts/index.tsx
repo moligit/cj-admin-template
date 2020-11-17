@@ -15,10 +15,10 @@ const BasicLayout: FC<ConnectProps> = ({ children }) => (
       <Affix offsetTop={0}>
         <Menu style={{ padding: '0 20px' }} mode="horizontal">
           <Menu.Item key="test">
-            <Link to="/demo1">demo1</Link>
+            <Link to="/demo/demo1">demo1</Link>
           </Menu.Item>
           <Menu.Item key="softText">
-            <Link to="/demo2/softTextList">demo2</Link>
+            <Link to="/demo/demo2/softTextList">demo2</Link>
           </Menu.Item>
         </Menu>
       </Affix>

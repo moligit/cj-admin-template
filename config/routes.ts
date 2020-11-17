@@ -1,6 +1,6 @@
 export default [
   {
-    path: '/welcome',
+    path: '/demo1',
     component: 'demo/demo1',
     menu: {
       name: 'demo-用户', // 兼容此写法
@@ -12,16 +12,24 @@ export default [
     access: 'canRead',
   },
   {
-    path: '/welcome2',
+    path: '/demo2',
     component: 'demo/demo2/softTextList',
     menu: {
       name: 'demo-富文本', // 兼容此写法
       icon: 'BarsOutlined',
     },
     layout: {
-      hideNav: true,
+      hideNav: false,
     },
-    access: 'canRead',
+    // access: 'canRead',
+  },
+  {
+    path: '/demo2/softTextSet/:id',
+    component: 'demo/demo2/softTextSet/[id].tsx',
+    menu: {},
+    layout: {
+      hideNav: false,
+    },
   },
   {
     path: '/demo-hooks',
@@ -31,7 +39,7 @@ export default [
       icon: 'BarsOutlined',
     },
     layout: {
-      hideNav: true,
+      hideNav: false,
     },
     access: 'canRead',
   },
@@ -43,7 +51,7 @@ export default [
       icon: 'BarsOutlined',
     },
     layout: {
-      hideNav: true,
+      hideNav: false,
     },
     access: 'canRead',
   },
