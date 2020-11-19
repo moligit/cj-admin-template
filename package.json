@@ -42,6 +42,7 @@
 		"react-viewerjs": "^0.1.9",
 		"umi": "^3.2.10",
 		"uuid": "^8.3.0",
+		"wangeditor": "^4.4.2",
 		"yorkie": "^2.0.0"
 	},
 	"devDependencies": {
