@@ -42,7 +42,7 @@ const WEditor: FC<IWEditor> = ({
     };
 
     /**内置默认上传图片到CJ OSS -- 暂时没有实现接口 */
-    // configUploadImg(editor)
+    configUploadImg(editor);
 
     /**新增预览菜单 */
     configPreviewMenu(editor);
