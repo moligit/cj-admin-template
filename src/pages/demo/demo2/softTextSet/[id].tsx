@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Editor, Panel } from '@/components';
+import { Editor, Panel, WEditor } from '@/components';
 import { history, useParams } from 'umi';
 import { Button, Form, Input, message, Spin, Upload } from 'antd';
 import { useRequest } from 'ahooks';
@@ -109,27 +109,27 @@ const SoftTextSet: FC = () => {
 
   return (
     <Panel title="软文编辑">
-      <Spin spinning={ loading }>
-        <div className={ styles.wrapper }>
-          <Form form={ form } scrollToFirstError>
+      <Spin spinning={loading}>
+        <div className={styles.wrapper}>
+          <Form form={form} scrollToFirstError>
             <Form.Item
               label="标题"
-              labelCol={ { span: 3 } }
+              labelCol={{ span: 3 }}
               name="title"
-              rules={ [
+              rules={[
                 {
                   required: true,
                   message: '请输入标题',
                 },
-              ] }
+              ]}
             >
-              <Input type="text" maxLength={ 100 } placeholder="请输入推文标题" />
+              <Input type="text" maxLength={100} placeholder="请输入推文标题" />
             </Form.Item>
             <Form.Item
               label="内容"
-              labelCol={ { span: 3 } }
+              labelCol={{ span: 3 }}
               name="content"
-              rules={ [
+              rules={[
                 {
                   required: true,
                   validateTrigger: 'onBlur',
@@ -138,15 +138,20 @@ const SoftTextSet: FC = () => {
                     return Promise.reject(new Error('请编辑内容'));
                   },
                 },
-              ] }
+              ]}
             >
-              <Editor />
+              <WEditor
+                beforeCreate={editor => {
+                  /**菜单自定义 */
+
+                }}
+              />
             </Form.Item>
             <Form.Item
               label="上传封面图、背景图"
               name="uploadImg"
-              labelCol={ { span: 3 } }
-              rules={ [
+              labelCol={{ span: 3 }}
+              rules={[
                 {
                   required: true,
                   validator: () => {
@@ -154,69 +159,69 @@ const SoftTextSet: FC = () => {
                     return Promise.reject(new Error('请上传封面图、背景图'));
                   },
                 },
-              ] }
+              ]}
             >
               <div className="upload-box">
-                <ImgCrop rotate aspect={ 690 / 440 }>
+                <ImgCrop rotate aspect={690 / 440}>
                   <Upload
                     method="get"
                     className="upload-item"
                     accept="image/*"
                     listType="picture-card"
-                    showUploadList={ false }
-                    beforeUpload={ (file: any) => beforeUpload(file) }
-                    onChange={ (file: any) => handleChange(file, 'cover') }
+                    showUploadList={false}
+                    beforeUpload={(file: any) => beforeUpload(file)}
+                    onChange={(file: any) => handleChange(file, 'cover')}
                   >
-                    { coverImgUrl ? <img src={ coverImgUrl } alt="封面图" /> : (
+                    {coverImgUrl ? <img src={coverImgUrl} alt="封面图" /> : (
                       <div>
-                        { coverUploading ? <LoadingOutlined /> : <PlusOutlined /> }
+                        { coverUploading ? <LoadingOutlined /> : <PlusOutlined />}
                         <p className="ant-upload-text">点击上传封面图(推文列表和推文预览)</p>
                         <p className="ant-upload-text">建议上传像素大小690*440的图片</p>
                       </div>
-                    ) }
+                    )}
                   </Upload>
                 </ImgCrop>
-                <ImgCrop rotate aspect={ 750 / 1624 }>
+                <ImgCrop rotate aspect={750 / 1624}>
                   <Upload
                     method="get"
                     className="upload-item"
                     accept="image/*"
                     listType="picture-card"
-                    showUploadList={ false }
-                    beforeUpload={ (file: any) => beforeUpload(file) }
-                    onChange={ (file: any) => handleChange(file, 'bg') }
+                    showUploadList={false}
+                    beforeUpload={(file: any) => beforeUpload(file)}
+                    onChange={(file: any) => handleChange(file, 'bg')}
                   >
-                    { bgImgUrl ? <img src={ bgImgUrl } alt="背景图" /> : (
+                    {bgImgUrl ? <img src={bgImgUrl} alt="背景图" /> : (
                       <div>
-                        { bgUploading ? <LoadingOutlined /> : <PlusOutlined /> }
+                        { bgUploading ? <LoadingOutlined /> : <PlusOutlined />}
                         <p className="ant-upload-text">点击上传背景图(推文详情页面)</p>
                         <p className="ant-upload-text">建议上传像素大小750*1624的图片</p>
                       </div>
-                    ) }
+                    )}
                   </Upload>
                 </ImgCrop>
               </div>
             </Form.Item>
             <Form.Item
               label="关键词"
-              labelCol={ { span: 3 } }
+              labelCol={{ span: 3 }}
               name="keyWords"
-              rules={ [{ required: true, message: '请输入关键词,英文逗号分割' }] }
+              rules={[{ required: true, message: '请输入关键词,英文逗号分割' }]}
             >
               <Input placeholder="请输入关键词，英文逗号分割。用于seo优化，网页文章描述" />
             </Form.Item>
             <Form.Item
               label="描述优化"
-              labelCol={ { span: 3 } }
+              labelCol={{ span: 3 }}
               name="description"
             >
-              <TextArea rows={ 4 } placeholder="用于seo优化，网页文章描述" />
+              <TextArea rows={4} placeholder="用于seo优化，网页文章描述" />
             </Form.Item>
           </Form>
           <div className="btn-box">
-            <Button onClick={ handleCancel }>取消</Button>
-            <Button type="primary" onClick={ () => handleSubmit(0) }>保存到草稿箱</Button>
-            <Button type="primary" onClick={ () => handleSubmit(1) }>立即发布</Button>
+            <Button onClick={handleCancel}>取消</Button>
+            <Button type="primary" onClick={() => handleSubmit(0)}>保存到草稿箱</Button>
+            <Button type="primary" onClick={() => handleSubmit(1)}>立即发布</Button>
           </div>
         </div>
       </Spin>

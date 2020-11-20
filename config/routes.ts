@@ -55,16 +55,4 @@ export default [
     },
     access: 'canRead',
   },
-  {
-    path: '/demo-weditor',
-    component: 'demo/weditor',
-    menu: {
-      name: 'demo-wangEditor', // 兼容此写法
-      icon: 'BarsOutlined',
-    },
-    layout: {
-      hideNav: false,
-    },
-    access: 'canRead',
-  },
 ];
