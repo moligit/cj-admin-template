@@ -69,8 +69,8 @@ class menuPreview extends E.BtnMenu {
 
 然后在beforeCreate中添加下面代码
 ````typescript
-const menuKey = 'alertMenuKey' // 菜单 key ，各个菜单不能重复
-editor.menus.extend('alertMenuKey', AlertMenu)
+const menuKey = 'previewKey' // 菜单 key ，各个菜单不能重复
+editor.menus.extend('previewKey', AlertMenu)
 
 // 将菜单加入到 editor.config.menus 中
 // 也可以通过配置 menus 调整菜单的顺序，参考【配置菜单】部分的文档
