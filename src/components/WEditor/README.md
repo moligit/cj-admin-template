@@ -6,13 +6,13 @@
 
 ## 使用编辑器
 
-````
+````typescript
 <WEditor beforeCreate={editor => {}} />
 ````
 
 ## 上传图片
 在beforeCreate中可以定义自定义上传规则
-````
+````typescript
 editor.config.customUploadImg = async (
     resultFiles: any,
     insertImgFn: any,
@@ -28,7 +28,7 @@ editor.config.customUploadImg = async (
 
 ## 扩展自定义菜单
 新建文件 menuPreview.ts
-````
+````typescript
 /** menuPreview.ts **/
 import E from 'wangEditor'
 
@@ -67,12 +67,22 @@ class menuPreview extends E.BtnMenu {
 
 ````
 
+然后在beforeCreate中添加下面代码
+````typescript
+const menuKey = 'alertMenuKey' // 菜单 key ，各个菜单不能重复
+editor.menus.extend('alertMenuKey', AlertMenu)
+
+// 将菜单加入到 editor.config.menus 中
+// 也可以通过配置 menus 调整菜单的顺序，参考【配置菜单】部分的文档
+editor.config.menus = editor.config.menus.concat(menuKey)
+````
+
 ## 属性
 
 属性名 | 类型 | 默认值 | 备注
 --- | --- | --- | ---
 beforeCreate | (editor:Editor) => void | editor => {} | 创建编辑前配置editor.config
-id | string | wangEditor | 编辑器id
+id | string | "wangEditor" | 编辑器id
 onBlur | (html:string) => void | html => {} | 编辑器失去焦点事件
 onFocus | (html:string) => void | html => {} | 编辑器获取焦点事件
 onChange | (html:string) => void | html => {} | 编辑器内容改变事件
