@@ -85,4 +85,5 @@ beforeCreate | (editor:Editor) => void | editor => {} | 创建编辑前配置edi
 id | string | "wangEditor" | 编辑器id
 onBlur | (html:string) => void | html => {} | 编辑器失去焦点事件
 onFocus | (html:string) => void | html => {} | 编辑器获取焦点事件
+value | string | '' | 编辑器绑定的值
 onChange | (html:string) => void | html => {} | 编辑器内容改变事件
