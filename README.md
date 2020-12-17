@@ -1,7 +1,9 @@
 # cj-admin模版项目
 
 ## 使用
-> 后台需要全局状态管理的需求少、所以建议大家尽量写在本地存储中（storage）；如果必须要用、建议用dva
+> 后台需要全局状态管理的需求少、所以建议大家尽量写在本地存储中（storage）；如果必须要用、建议用StoreProvider组件（src/demo-hooks是这个组件的使用demo）
+
+> 富文本编辑器统一用WEditor组件（src/demo2是这个组件的使用demo）
 
 ### 目录结构说明
 ```
@@ -52,7 +54,21 @@
     >.umirc.local.ts(本地配置文件、不放到git仓库中跟踪) > UMI_ENV 指定的配置（.umirc.test.ts） > .umirc.ts(始终会执行、其他指定配置会和它 deep merge 后形成最终配)
 
     >注：.umirc.local.ts 仅在 umi dev 时有效。umi build 时不会被加载。
-    
+- .umirc.local.ts 文件内容参考（该文件需要自己创建、不走git）
+```
+import { defineConfig } from 'umi';
+
+export default defineConfig({
+  // base: '/',
+
+  // ---- 本地环境-优先级最高
+  define: {
+    ENV:'local',
+    JOBSAPI: 'http://master.jobs2020.cj.com/api',
+  },
+});
+```    
+
 
 ### cicd
     cicd自动部署已配置好、可直接使用
@@ -63,7 +79,8 @@
     
 ### demo说明
     demo 1 主要展示目录架构的使用规范
-    demo 2 主要展示富文本的使用
+    demo 2 主要展示富文本编辑器的使用
+    demo-hoos 主要展示hooks全局状态的使用
 
 ### 本地环境启动
 
