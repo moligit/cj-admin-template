@@ -29,7 +29,7 @@ http {
           root   /usr/share/nginx/www;
           index  index.html index.htm;
 
-          try_files $uri $uri/ CONTEXT_PATH;
+          try_files $uri $uri/ CONTEXT_PATH/;
         }
 
 
