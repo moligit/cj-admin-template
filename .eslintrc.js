@@ -32,6 +32,7 @@ module.exports = {
       },
     ],
     'max-len': ['error', { code: 180 }],
+    'max-lines': ['error', 300],
     'import/no-extraneous-dependencies': 0,
     'import/extensions': 0,
     'react/jsx-curly-spacing': 0,
