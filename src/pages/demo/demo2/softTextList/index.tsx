@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import moment from 'moment';
 import { Panel } from '@/components';
 import {
@@ -57,6 +57,11 @@ const Index: FC = () => {
     },
   });
 
+  function getList() {
+    const { current, pageSize } = pagination;
+    getTableData({ ...search, pageNumber: current, pageSize });
+  }
+
   // 上架/下架
   const { run: changeStatus } = useRequest(Api.changeStatusApi, {
     onSuccess: ({ success, message: msg }) => {
@@ -96,11 +101,6 @@ const Index: FC = () => {
       pathname: '/demo2/softTextSet/add',
     });
   };
-
-  function getList() {
-    const { current, pageSize } = pagination;
-    getTableData({ ...search, pageNumber: current, pageSize });
-  }
 
   useEffect(() => {
     if (firstUpdate.current) {
@@ -188,8 +188,7 @@ const Index: FC = () => {
     {
       title: '发布时间',
       dataIndex: 'publishTime',
-      render: (date: number) =>
-        moment(Number(date)).format('YYYY-MM-DD hh:mm:ss'),
+      render: (date: number) => moment(Number(date)).format('YYYY-MM-DD hh:mm:ss'),
     },
     {
       title: '操作',
