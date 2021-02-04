@@ -5,6 +5,8 @@ metadata:
   labels:
     cattle.io/creator: norman
   name: CI_COMMIT_REF_NAME.CI_PROJECT_NAME.CI_PROJECT_NAMESPACE.cj.com
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "2M"
 spec:
   rules:
     - host: CI_COMMIT_REF_NAME.CI_PROJECT_NAME.CI_PROJECT_NAMESPACE.cj.com

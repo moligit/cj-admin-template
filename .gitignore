@@ -21,3 +21,4 @@
 /.env.local
 .umirc.local.ts
 /.idea
+/coverage
