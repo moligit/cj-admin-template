@@ -46,7 +46,7 @@ export function formatNumber(str = '', length: number): string {
  * @param {String} filed 根据某个字段去重
  * @returns {Array} 输出
  */
-export function unique(arr: any = [], filed: string): any[] {
+export function unique(arr: any = [], filed?: string): any[] {
   const res = new Map();
   return filed
     ? arr.filter(

@@ -28,11 +28,12 @@ module.exports = {
     'import/no-unresolved': [
       2,
       {
-        ignore: ['^@/', './'],
+        ignore: ['^@/', './', '../'],
       },
     ],
     'max-len': ['error', { code: 180 }],
     'max-lines': ['error', 300],
+    // 'max-lines-per-function': ['error', 300], // 单个函数行数
     'import/no-extraneous-dependencies': 0,
     'import/extensions': 0,
     'react/jsx-curly-spacing': 0,
