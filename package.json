@@ -24,7 +24,8 @@
 			"prettier --parser=typescript --write"
     ],
 		"*.{js?(x),ts(x)}": [
-      "eslint --fix"
+      "eslint --fix",
+      "npm run test"
 		]
 	},
 	"dependencies": {
