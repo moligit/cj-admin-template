@@ -14,7 +14,7 @@
 		"test:coverage": "jest --coverage"
 	},
 	"gitHooks": {
-		"pre-commit": "lint-staged"
+		"pre-commit": "lint-staged && npm run test:coverage"
 	},
 	"lint-staged": {
 		"*.{js?(x),ts(x),less,md,json}": [
@@ -24,9 +24,7 @@
 			"prettier --parser=typescript --write"
     ],
 		"*.{js?(x),ts(x)}": [
-      "eslint --fix",
-      "npm run test:coverage",
-      "git add"
+      "eslint --fix"
 		]
 	},
 	"dependencies": {
