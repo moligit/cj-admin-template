@@ -25,7 +25,8 @@
     ],
 		"*.{js?(x),ts(x)}": [
       "eslint --fix",
-      "npm run test:coverage"
+      "npm run test:coverage",
+      "git add"
 		]
 	},
 	"dependencies": {
