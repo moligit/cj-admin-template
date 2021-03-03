@@ -1,7 +1,4 @@
-// import React from 'react';
-// import renderer from 'react-test-renderer';
 import { unique } from '../../src/utils/utils';
-// import Demohooks from '../../src/components/Panel';
 
 const sum = (a: number, b: number) => a + b;
 
@@ -42,22 +39,7 @@ describe('异步操作测试', () => {
   });
 });
 
-// const Dedecp = () => <p>dede</p>;
-
-// describe('UI快照', () => {
-//   test('renders correctly', () => {
-//     const tree = renderer
-//       .create(
-//         <Demohooks>
-//           <Dedecp />
-//         </Demohooks>,
-//       )
-//       .toJSON();
-//     expect(tree).toMatchSnapshot();
-//   });
-// });
-
-// describe('组件测试', () => {});
+describe('组件测试', () => {});
 
 describe('mock函数测试', () => {
   test('测试jest.fn()返回固定值', () => {

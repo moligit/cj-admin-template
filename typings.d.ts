@@ -2,6 +2,9 @@ declare module '*.css';
 declare module '*.less';
 declare module '*.png';
 declare module '*.js';
+
+// eslint-disable-next-line no-unused-vars
+declare let ENV: string;
 declare module '*.svg' {
   export function ReactComponent(
     props: React.SVGProps<SVGSVGElement>,

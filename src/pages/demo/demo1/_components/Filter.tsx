@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { FC } from 'react';
 import { Button, Form, Input } from 'antd';
 
@@ -16,9 +17,7 @@ const Filter: FC<IProps> = ({ handleSearch }) => {
       <Form.Item name="name">
         <Input placeholder="客户编号、用户名、客户姓名" />
       </Form.Item>
-      <Button type="primary" htmlType="submit">
-        查询
-      </Button>
+      <Button type="primary">查询</Button>
     </Form>
   );
 };

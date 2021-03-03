@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI快照-panel组件 renders correctly 1`] = `
+<div
+  class="wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <p>
+        <span>
+          1614773272790
+        </span>
+        dede
+      </p>
+    </div>
+  </div>
+</div>
+`;

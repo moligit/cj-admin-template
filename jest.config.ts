@@ -42,7 +42,15 @@ module.exports = {
   // ],
 
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
+  coverageThreshold: {
+    // 全局覆盖率阀值
+    global: {
+      branches: 50, // 分支覆盖率
+      functions: 50, // 函数执行的覆盖率
+      lines: 50, // 代码函数覆盖率
+      statements: 50, // 声明的覆盖率
+    },
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
@@ -60,7 +68,9 @@ module.exports = {
   // globalTeardown: undefined,
 
   // A set of global variables that need to be available in all test environments
-  // globals: {},
+  globals: {
+    ENV: 'test',
+  },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1
   // as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
@@ -83,7 +93,8 @@ module.exports = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    '\\.(css|scss|less)$': 'identity-obj-proxy',
+    '\\.(css|scss|less)$': 'identity-obj-proxy', // less文件过滤
+    '^@/(.*)$': '<rootDir>/src/$1', // 别名设置
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -128,7 +139,7 @@ module.exports = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
+  setupFiles: ['./__tests__/setup.ts'], // 配置文件，在运行测试案例代码之前，Jest会先运行这里的配置文件来初始化指定的测试环境
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
@@ -140,7 +151,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom', // 执行环境 jsdom/node
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
