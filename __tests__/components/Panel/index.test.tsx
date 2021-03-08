@@ -14,13 +14,13 @@ const Dedecp: FC<IDedecpProps> = ({ datetime }) => (
     dede
   </p>
 );
-const dateobj = new Date();
+Date.now = jest.fn(() => 1614773272790);
 
 describe('UI快照-panel组件', () => {
   test('renders correctly', () => {
     const wrapper = render(
       <Panel title="dedede">
-        <Dedecp datetime={dateobj.getTime()} />
+        <Dedecp datetime={Date.now()} />
       </Panel>,
     );
     expect(toJson(wrapper)).toMatchSnapshot();

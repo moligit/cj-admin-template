@@ -47,8 +47,8 @@ module.exports = {
     global: {
       branches: 50, // 分支覆盖率
       functions: 50, // 函数执行的覆盖率
-      lines: 50, // 代码函数覆盖率
-      statements: 50, // 声明的覆盖率
+      lines: 50, // 代码行数覆盖率
+      statements: 50, // 声明/语句的覆盖率
     },
   },
 
