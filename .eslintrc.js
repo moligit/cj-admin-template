@@ -4,7 +4,11 @@ module.exports = {
     es2020: true,
     jest: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:@typescript-eslint/recommended',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -42,6 +46,7 @@ module.exports = {
     'no-unused-expressions': 0,
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/click-events-have-key-events': 0,
+    '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
   },
   globals: {
     ENV: true,

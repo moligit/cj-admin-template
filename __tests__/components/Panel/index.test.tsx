@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { FC } from 'react';
 import { render } from 'enzyme';
 import toJson from 'enzyme-to-json';
