@@ -52,8 +52,10 @@ deploy:
     - export HTTP_PORT=80
     - CONTEXT_PATH=$(echo `cat .umirc.ts | awk '/base:/'|awk '{print $2}' | sed -n '1p'`);CONTEXT_PATH=${CONTEXT_PATH//\'/};
       export CONTEXT_PATH=${CONTEXT_PATH//,/}
+    - echo ${CONTEXT_PATH} 
+    - export CI_PROJECT_NAMESPACE=${CI_PROJECT_NAMESPACE//\//-}
     - mkdir -p docker/www${CONTEXT_PATH}
-    - cp -r dist/. docker/www$CONTEXT_PATH
+    - cp -r dist/. docker/www${CONTEXT_PATH}
     - cd docker
     #处理nginx的contextPath
     - cat nginx.tmp | sed 's#CONTEXT_PATH#'"${CONTEXT_PATH}"'#g' >nginx.conf
